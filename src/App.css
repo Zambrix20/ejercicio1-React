@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+input {
+  margin: 5px auto;
+}
+
 .whiteColor {
   /* background-color: white; */
   color: white;
