@@ -1,0 +1,12 @@
+.box {
+  width: 90%;
+  min-height: 90%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* color: #fff; */
+  border: solid 0.1em;
+  border-radius: 5px;
+  margin: 5px auto;
+  animation: bounce 1s infinite alternate;
+  text-align: center;
+  /* display: flex; */
+}
