@@ -30,7 +30,8 @@ function App() {
     },
   ])
 
-  const [activePage, setActivePage] = useState('pokemones')
+  // const [activePage, setActivePage] = useState('pokemones')
+  const [activePage, setActivePage] = useState('episodes')
   // const [counter, setCounter] = useState(0)
 
   // function addCounter() {
@@ -55,7 +56,8 @@ function App() {
   return (
     <GradesContext.Provider value={{ usersWithGrades, setUserWithGrades }}>
       {
-        activePage === 'home' ? <Home /> : <Pokemones />
+        // activePage === 'home' ? <Home /> : <Pokemones />
+        activePage === 'home' ? <Home /> : <Episodes />
       }
       {/* <Home /> */}
     </GradesContext.Provider>
