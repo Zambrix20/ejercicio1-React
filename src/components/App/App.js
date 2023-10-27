@@ -1,5 +1,5 @@
 //import React from "react";
-import React from 'react'
+import React, { createContext, useState } from "react"
 
 import logo from '../../logo.svg';
 import './App.css';
@@ -7,10 +7,30 @@ import Box from '../Box/box';
 //import { useState } from 'react';
 import Home from '../../pages/home';
 import UserWithGrades from '../../components/Usersgrades/Usergrades';
+import Episodes from "../../pages/episodes";
+import Pokemones from "../../pages/pokemones";
+
+export const GradesContext = createContext();
 
 // La funcion va retornar HTML - componente funcional
 function App() {
 
+  const [usersWithGrades, setUserWithGrades] = useState([
+    {
+      name: 'Juan',
+      grade: 8
+    },
+    {
+      name: 'Maria',
+      grade: 9
+    },
+    {
+      name: 'Jose',
+      grade: 7
+    },
+  ])
+
+  const [activePage, setActivePage] = useState('pokemones')
   // const [counter, setCounter] = useState(0)
 
   // function addCounter() {
@@ -33,9 +53,16 @@ function App() {
   // }
 
   return (
+    <GradesContext.Provider value={{ usersWithGrades, setUserWithGrades }}>
+      {
+        activePage === 'home' ? <Home /> : <Pokemones />
+      }
+      {/* <Home /> */}
+    </GradesContext.Provider>
+
     // (<Home />)
 
-    (<UserWithGrades />)
+    // (<UserWithGrades />)
 
     // <div className="App">
     //   <header className="App-header">
@@ -48,8 +75,8 @@ function App() {
     //       //   return <Box key={index} user={user} grade={grades[index]} />
     //       // })
     //       // Usando deconstruccion
-    //       //userWithGrades.map(({ user, grade }, index) => { return <Box key={index} user={user} grade={grade} /> })
-    //       // userWithGrades.map((user, index) => { return <Box key={index} user={user.user} grade={user.grade} /> })
+    //       //usersWithGrades.map(({ user, grade }, index) => { return <Box key={index} user={user} grade={grade} /> })
+    //       // usersWithGrades.map((user, index) => { return <Box key={index} user={user.user} grade={user.grade} /> })
     //     }
     //     {/* Hello, {user} {lastName}!
     //     <input id='nameChangeInput' type='text' placeholder='Change your name' />
